@@ -2,8 +2,6 @@ import type { NextPage } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import { useEffect } from 'react'
-
 import Card from '@/components/Card'
 import Language from '@/components/Language'
 import useTokens from '@/hooks/useTokens'
@@ -12,10 +10,6 @@ const Home: NextPage = () => {
   const { t, i18n } = useTranslation(['common', 'token'])
 
   const { data: tokensData, isLoading: tokensLoading } = useTokens()
-
-  useEffect(() => {
-    console.log(i18n.language, t('loading'))
-  }, [i18n.language])
 
   return (
     <div className="px-8 py-4">
