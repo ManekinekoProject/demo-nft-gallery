@@ -7,10 +7,6 @@ import useTokens from '@/hooks/useTokens'
 const Home: NextPage = () => {
   const { data: tokensData, isLoading: tokensLoading } = useTokens()
 
-  useEffect(() => {
-    console.log(tokensData)
-  }, [tokensData])
-
   return (
     <div className="px-8 py-4">
       <header className="flex justify-center">
