@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         {tokensLoading ? (
           <div className="text-center text-xl font-bold">Loading...</div>
         ) : tokensData.length > 0 ? (
-          <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {tokensData.map((token, index) => {
               return <Card key={`token-${index}`} token={token} />
             })}
