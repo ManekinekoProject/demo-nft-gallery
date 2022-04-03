@@ -11,7 +11,7 @@ const Card = ({ token }: TProps) => {
   return (
     <div className="flex flex-col sm:flex-row mb-4 bg-slate-100 rounded-2xl">
       <img
-        className="w-full sm:w-1/3 rounded-t-2xl sm:rounded-l-2xl"
+        className="w-full sm:w-1/3 rounded-t-2xl sm:rounded-tr-none sm:rounded-l-2xl"
         src={token.image}
       ></img>
 
