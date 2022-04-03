@@ -1,13 +1,12 @@
-type TAttr = {
-  trait_type: string
-  value: string
-}
+import { useTranslation } from 'next-i18next'
 
 type TProps = {
   token: IToken
 }
 
 const Card = ({ token }: TProps) => {
+  const [t] = useTranslation('token')
+
   return (
     <div className="flex flex-col md:flex-row mb-4 bg-slate-100 hover:bg-slate-200 duration-200 rounded-2xl">
       <div
@@ -17,23 +16,29 @@ const Card = ({ token }: TProps) => {
 
       <div className="p-4">
         <div className="mb-2 flex justify-center md:justify-start items-center">
-          <p className="font-bold">上個月：</p>
-          <p>{token.attributes.lastMonth} 點</p>
+          <p className="font-bold">{t('lastMonth')}：</p>
+          <p>
+            {token.attributes.lastMonth} {t('point')}
+          </p>
         </div>
 
         <div className="mb-2 flex justify-center md:justify-start items-center">
-          <p className="font-bold">已領取：</p>
-          <p>{token.attributes.claimed} 點</p>
+          <p className="font-bold">{t('claimed')}：</p>
+          <p>
+            {token.attributes.claimed} {t('point')}
+          </p>
         </div>
 
         <div className="mb-2 flex justify-center md:justify-start items-center">
-          <p className="font-bold">未領取：</p>
-          <p>{token.attributes.unclaim} 點</p>
+          <p className="font-bold">{t('unclaimed')}：</p>
+          <p>
+            {token.attributes.unclaim} {t('point')}
+          </p>
         </div>
 
         {token.description && (
           <div className="mb-2 flex justify-center md:justify-start items-center">
-            <p className="font-bold">圖片故事：</p>
+            <p className="font-bold">{t('description')}：</p>
             <p>{token.description}</p>
           </div>
         )}

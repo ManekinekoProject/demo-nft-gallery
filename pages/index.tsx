@@ -1,20 +1,35 @@
 import type { NextPage } from 'next'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+import { useEffect } from 'react'
 
 import Card from '@/components/Card'
+import Language from '@/components/Language'
 import useTokens from '@/hooks/useTokens'
 
 const Home: NextPage = () => {
+  const { t, i18n } = useTranslation(['common', 'token'])
+
   const { data: tokensData, isLoading: tokensLoading } = useTokens()
+
+  useEffect(() => {
+    console.log(i18n.language, t('loading'))
+  }, [i18n.language])
 
   return (
     <div className="px-8 py-4">
       <header className="flex justify-center">
-        <h1 className="text-3xl text-blue-500 font-bold">Hello world!</h1>
+        <h1 className="text-3xl text-blue-500 font-bold">{t('title')}</h1>
       </header>
+
+      <div>
+        <Language />
+      </div>
 
       <div className="mt-6">
         {tokensLoading ? (
-          <div className="text-center text-xl font-bold">Loading...</div>
+          <div className="text-center text-xl font-bold">{t('loading')}...</div>
         ) : tokensData.length > 0 ? (
           <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {tokensData.map((token, index) => {
@@ -22,11 +37,23 @@ const Home: NextPage = () => {
             })}
           </section>
         ) : (
-          <div className="text-center text-xl font-bold">No NFT found.</div>
+          <div className="text-center text-xl font-bold">
+            {t('notFound', { ns: 'token' })}
+          </div>
         )}
       </div>
     </div>
   )
+}
+
+// @ts-ignore
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'token'])),
+      // Will be passed to the page component as props
+    },
+  }
 }
 
 export default Home

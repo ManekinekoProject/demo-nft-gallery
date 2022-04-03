@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import { appWithTranslation } from 'next-i18next'
 import type { AppProps } from 'next/app'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -12,7 +13,7 @@ export const queryClient = new QueryClient({
   },
 })
 
-function MyNftApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Component {...pageProps} />
@@ -20,4 +21,4 @@ function MyNftApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyNftApp
+export default appWithTranslation(MyApp)
