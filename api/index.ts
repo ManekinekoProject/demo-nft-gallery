@@ -20,8 +20,8 @@ export const callAPI = async ({ url, method = 'POST', body }: TProps) => {
   return result
 }
 
-export const getToken = ({tokenId = 0}) =>
+export const getTokens = () =>
   callAPI({
-    url: `/token/${tokenId}`,
+    url: `/token`,
     method: 'GET',
   })

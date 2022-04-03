@@ -1,28 +1,15 @@
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
-import { useInfiniteQuery } from 'react-query'
 
-import { getToken } from '@/api'
 import Card from '@/components/Card'
+import useTokens from '@/hooks/useTokens'
 
 const Home: NextPage = () => {
-  const [NFTs, setNFTs] = useState<any[] | undefined>()
-
-  const {
-    data,
-    error,
-    fetchNextPage,
-    hasNextPage,
-    isFetching,
-    isFetchingNextPage,
-    status,
-  } = useInfiniteQuery('tokens', getToken, {
-    getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
-  })
+  const { data: tokensData, isLoading: tokensLoading } = useTokens()
 
   useEffect(() => {
-    console.log('data', data)
-  }, [data])
+    console.log(tokensData)
+  }, [tokensData])
 
   return (
     <div className="px-8 py-4">
@@ -30,23 +17,15 @@ const Home: NextPage = () => {
         <h1 className="text-3xl text-blue-500 font-bold">Hello world!</h1>
       </header>
 
-      <section className="flex flex-wrap justify-center mt-6">
-        {NFTs ? (
-          NFTs.map((NFT) => {
-            return (
-              <Card
-                key={NFT.value.id + NFT.value.contractAddress}
-                image={NFT.value.image}
-                id={NFT.value.id}
-                title={NFT.value.title}
-                description={NFT.value.description}
-                address={NFT.value.contractAddress}
-                attributes={NFT.value.attributes}
-              />
-            )
+      <section className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+        {tokensLoading ? (
+          <div className="text-center text-xl font-bold">Loading...</div>
+        ) : tokensData.length > 0 ? (
+          tokensData.map((token, index) => {
+            return <Card key={`token-${index}`} token={token} />
           })
         ) : (
-          <div>No NFTs found</div>
+          <div className="text-center text-xl font-bold">No NFT found.</div>
         )}
       </section>
     </div>
