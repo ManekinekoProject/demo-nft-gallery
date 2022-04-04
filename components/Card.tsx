@@ -45,7 +45,7 @@ const Card = ({ token }: TProps) => {
 
         <div className="mb-2 flex justify-center md:justify-start items-center">
           <button className="w-full my-2 sm:my-0 inline-flex justify-center items-center border shadow-sm py-2 text-base font-medium focus:outline-none sm:text-sm border-transparent bg-blue-500 text-white hover:bg-blue-700">
-            領取招財金
+            {t('claim')}
           </button>
         </div>
 
