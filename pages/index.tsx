@@ -24,7 +24,7 @@ const Home: NextPage = () => {
   return (
     <div className="px-8 py-4">
       <header className="flex justify-center">
-        <h1 className="text-3xl text-blue-500 font-bold">{t('title')}</h1>
+        <h1 className="text-3xl text-blue-500 font-bold my-4">{t('title')}</h1>
       </header>
 
       <div>
