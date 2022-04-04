@@ -22,6 +22,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (searchContent !== '') {
+      // @ts-ignore
       const newList = tokensData?.filter(item => 
         item?.name.includes(searchContent) ||
         item?.attributes?.lastMonth?.includes(searchContent))
