@@ -16,19 +16,10 @@ const Home: NextPage = () => {
 
   const [searchContent, setSearchContent] = useState('')
 
-  const [list, setList] = useState(tokensData)
-  console.log(tokensData, 'tokensData')
-
-
-  useEffect(() => {
-    if (searchContent !== '') {
-      // @ts-ignore
-      const newList = tokensData?.filter(item => 
-        item?.name.includes(searchContent) ||
-        item?.attributes?.lastMonth?.includes(searchContent))
-      setList(newList)
-    }
-  }, [searchContent])
+  // @ts-ignore
+  const list = tokensData?.filter(item => 
+    item?.name.includes(searchContent) ||
+    item?.attributes?.lastMonth?.includes(searchContent))
 
   return (
     <div className="px-8 py-4">
@@ -46,10 +37,10 @@ const Home: NextPage = () => {
         {tokensLoading ? (
           <div className="text-center text-xl font-bold">{t('loading')}...</div>
         ) : // @ts-ignore
-        list.length > 0 ? (
+        tokensData.length > 0 ? (
           <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* @ts-ignore */}
-            {list.map((token, index) => {
+            {list.map((token: IToken, index: any) => {
               return <Card key={`token-${index}`} token={token} />
             })}
           </section>
