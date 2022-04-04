@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import Card from '@/components/Card'
 import Language from '@/components/Language'
+import Creator from '@/components/Creator'
 import useTokens from '@/hooks/useTokens'
 
 const Home: NextPage = () => {
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
 
       <div>
         <Language />
+        <Creator />
       </div>
 
       <div className="mt-6">
