@@ -8,7 +8,7 @@ import Creator from '@/components/Creator'
 import useTokens from '@/hooks/useTokens'
 
 const Home: NextPage = () => {
-  const { t, i18n } = useTranslation(['common', 'token'])
+  const { t } = useTranslation(['common', 'token'])
 
   const { data: tokensData, isLoading: tokensLoading } = useTokens()
 
@@ -26,8 +26,10 @@ const Home: NextPage = () => {
       <div className="mt-6">
         {tokensLoading ? (
           <div className="text-center text-xl font-bold">{t('loading')}...</div>
-        ) : tokensData.length > 0 ? (
+        ) : // @ts-ignore
+        tokensData.length > 0 ? (
           <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* @ts-ignore */}
             {tokensData.map((token, index) => {
               return <Card key={`token-${index}`} token={token} />
             })}
