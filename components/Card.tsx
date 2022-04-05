@@ -17,11 +17,9 @@ const Card = ({ token }: TProps) => {
       <div className="p-4">
         <div className="mb-2 flex justify-center md:justify-start items-center">
           <p className="font-bold">{t('no')}：</p>
-          <p>
-            {token.name}
-          </p>
+          <p>{token.name}</p>
         </div>
-        
+
         <div className="mb-2 flex justify-center md:justify-start items-center">
           <p className="font-bold">{t('lastMonth')}：</p>
           <p>

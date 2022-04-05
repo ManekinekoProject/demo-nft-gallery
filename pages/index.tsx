@@ -7,7 +7,7 @@ import Language from '@/components/Language'
 import Creator from '@/components/Creator'
 import SearchBar from '@/components/SearchBar'
 import useTokens from '@/hooks/useTokens'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const Home: NextPage = () => {
   const { t } = useTranslation(['common', 'token'])
@@ -17,9 +17,12 @@ const Home: NextPage = () => {
   const [searchContent, setSearchContent] = useState('')
 
   // @ts-ignore
-  const list = tokensData?.filter(item => 
-    item?.name.includes(searchContent) ||
-    item?.attributes?.lastMonth?.includes(searchContent))
+  const list = tokensData?.filter(
+    // @ts-ignore
+    (item) =>
+      item?.name.includes(searchContent) ||
+      item?.attributes?.lastMonth?.includes(searchContent)
+  )
 
   return (
     <div className="px-8 py-4">
@@ -30,7 +33,10 @@ const Home: NextPage = () => {
       <div>
         <Language />
         <Creator />
-        <SearchBar searchContent={searchContent} setSearchContent={setSearchContent} />
+        <SearchBar
+          searchContent={searchContent}
+          setSearchContent={setSearchContent}
+        />
       </div>
 
       <div className="mt-6">
@@ -40,7 +46,7 @@ const Home: NextPage = () => {
         tokensData.length > 0 ? (
           <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* @ts-ignore */}
-            {list.map((token: IToken, index: any) => {
+            {list.map((token: IToken, index: number) => {
               return <Card key={`token-${index}`} token={token} />
             })}
           </section>
