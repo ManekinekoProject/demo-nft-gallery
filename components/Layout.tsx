@@ -15,7 +15,7 @@ const Layout = ({ children, title }: TProps) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      <div className="px-8 py-4">{children}</div>
+      <div className="relative px-8 py-4">{children}</div>
     </div>
   )
 }
