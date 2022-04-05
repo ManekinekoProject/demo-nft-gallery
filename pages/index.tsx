@@ -20,6 +20,7 @@ const Home: NextPage = () => {
 
   const [searchContent, setSearchContent] = useState('')
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const [isContactModalOpen, setIsContactModalOpen] = useState<boolean>(false)
   const [selectedToken, setSelectedToken] = useState<IToken | undefined>()
 
   // @ts-ignore
@@ -48,6 +49,13 @@ const Home: NextPage = () => {
       <div>
         <Language />
         <Creator />
+        <Button
+          type="primary"
+          className="sm:mr-4"
+          onClick={() => setIsContactModalOpen(true)}
+        >
+          {t('contact')}
+        </Button>
         <SearchBar
           searchContent={searchContent}
           setSearchContent={setSearchContent}
@@ -109,6 +117,25 @@ const Home: NextPage = () => {
 
         <Modal.Footer>
           <Button type="light" onClick={() => setIsModalOpen(false)}>
+            {t('close')}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal
+        isOpen={isContactModalOpen}
+        hide={() => setIsContactModalOpen(false)}
+      >
+        <Modal.Body>
+          <div className="sm:flex sm:items-start">
+            <div className="mt-3 w-full text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <p>您好，我們提供專屬 NFT 鑄造服務，歡迎與我們聯絡！</p>
+            </div>
+          </div>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button type="light" onClick={() => setIsContactModalOpen(false)}>
             {t('close')}
           </Button>
         </Modal.Footer>
