@@ -14,7 +14,7 @@ const Language = () => {
       className="w-full my-2 sm:my-0 sm:w-auto inline-flex justify-center items-center border shadow-sm px-4 py-2 text-base font-medium focus:outline-none sm:text-sm border-transparent bg-blue-500 text-white hover:bg-blue-700"
       onClick={switchLang}
     >
-      {i18n.language === 'en' ? 'English' : '中文'}
+      {i18n.language === 'en' ? '中文' : 'English'}
     </button>
   )
 }

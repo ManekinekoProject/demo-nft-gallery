@@ -10,7 +10,7 @@ const Card = ({ token }: TProps) => {
   return (
     <div className="flex flex-col md:flex-row mb-4 bg-slate-100 hover:bg-slate-200 duration-200 rounded-2xl">
       <div
-        className="h-48 md:h-60 w-full md:w-1/3 rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl bg-contain bg-center bg-no-repeat"
+        className="h-48 md:h-60 w-full my-4 md:w-1/3 rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl bg-contain bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${token.image})` }}
       ></div>
 
