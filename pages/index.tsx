@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import Card from '@/components/Card'
 import Language from '@/components/Language'
+import Layout from '@/components/Layout'
 import Creator from '@/components/Creator'
 import SearchBar from '@/components/SearchBar'
 import useTokens from '@/hooks/useTokens'
@@ -25,7 +26,7 @@ const Home: NextPage = () => {
   )
 
   return (
-    <div className="px-8 py-4">
+    <Layout title={t('title')}>
       <header className="flex justify-center">
         <h1 className="text-3xl text-blue-500 font-bold my-4">{t('title')}</h1>
       </header>
@@ -56,7 +57,7 @@ const Home: NextPage = () => {
           </div>
         )}
       </div>
-    </div>
+    </Layout>
   )
 }
 
