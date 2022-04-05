@@ -1,8 +1,12 @@
 import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
 
-const SearchBar = ({ searchContent, setSearchContent }: { searchContent: any, setSearchContent: any }) => {
+const SearchBar = ({
+  searchContent,
+  setSearchContent,
+}: {
+  searchContent: any
+  setSearchContent: any
+}) => {
   const [t] = useTranslation('common')
 
   const onChange = (e: any) => {

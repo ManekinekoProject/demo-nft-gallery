@@ -10,4 +10,6 @@ interface IToken {
   attributes: IAttributes
   image: string
   description?: string
+  author?: string
+  createdAt?: string
 }
