@@ -16,7 +16,7 @@ const Card = ({ token, onImgClick }: TProps) => {
         onClick={() => onImgClick(token.tokenId)}
       ></div>
 
-      <div className="p-4">
+      <div className="flex-grow p-4">
         <div className="mb-2 flex justify-center md:justify-start items-center">
           <p className="font-bold">{t('no')}：</p>
           <p>{token.name}</p>
@@ -43,18 +43,18 @@ const Card = ({ token, onImgClick }: TProps) => {
           </p>
         </div>
 
+        {token.description && (
+          <div className="mb-2">
+            <p className="font-bold">{t('description')}：</p>
+            <p>{token.description}</p>
+          </div>
+        )}
+
         <div className="mb-2 flex justify-center md:justify-start items-center">
           <button className="w-full my-2 sm:my-0 inline-flex justify-center items-center border shadow-sm py-2 text-base font-medium focus:outline-none sm:text-sm border-transparent bg-blue-500 text-white hover:bg-blue-700">
             {t('claim')}
           </button>
         </div>
-
-        {token.description && (
-          <div className="mb-2 flex justify-center md:justify-start items-center">
-            <p className="font-bold">{t('description')}：</p>
-            <p>{token.description}</p>
-          </div>
-        )}
       </div>
     </div>
   )

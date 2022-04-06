@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from '@heroicons/react/outline'
 import type { NextPage } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -105,11 +106,23 @@ const Home: NextPage = () => {
                 <p>{selectedToken?.name}</p>
               </div>
 
-              <div className="mb-2 flex justify-center md:justify-start items-center">
+              <div className="mb-2">
                 <p className="font-bold">
                   {t('description', { ns: 'token' })}：
                 </p>
                 <p>{selectedToken?.description}</p>
+              </div>
+
+              <div className="mb-2 text-blue-500">
+                <a
+                  href={`https://opensea.io/assets/matic/0xa591f08ab6b0bfda8fbd3ecf8699f148d4a0169e/${selectedToken?.tokenId}`}
+                  className="inline-flex items-center hover:underline cursor-pointer"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <ExternalLinkIcon className="shrink-0 h-5 mr-1" />
+                  {t('buyNow', { ns: 'token' })}
+                </a>
               </div>
             </div>
           </div>
