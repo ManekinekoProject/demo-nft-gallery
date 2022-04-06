@@ -17,26 +17,26 @@ const Card = ({ token, onImgClick }: TProps) => {
       ></div>
 
       <div className="flex-grow p-4">
-        <div className="mb-2 flex justify-center md:justify-start items-center">
+        <div className="mb-2 flex justify-start items-center">
           <p className="font-bold">{t('no')}：</p>
           <p>{token.name}</p>
         </div>
 
-        <div className="mb-2 flex justify-center md:justify-start items-center">
+        <div className="mb-2 flex justify-start items-center">
           <p className="font-bold">{t('lastMonth')}：</p>
           <p>
             {token.attributes.lastMonth} {t('point')}
           </p>
         </div>
 
-        <div className="mb-2 flex justify-center md:justify-start items-center">
+        <div className="mb-2 flex justify-start items-center">
           <p className="font-bold">{t('claimed')}：</p>
           <p>
             {token.attributes.claimed} {t('point')}
           </p>
         </div>
 
-        <div className="mb-2 flex justify-center md:justify-start items-center">
+        <div className="mb-2 flex justify-start items-center">
           <p className="font-bold">{t('unclaimed')}：</p>
           <p>
             {token.attributes.unclaim} {t('point')}
@@ -50,7 +50,7 @@ const Card = ({ token, onImgClick }: TProps) => {
           </div>
         )}
 
-        <div className="mb-2 flex justify-center md:justify-start items-center">
+        <div className="mb-2 flex justify-start items-center">
           <button className="w-full my-2 sm:my-0 inline-flex justify-center items-center border shadow-sm py-2 text-base font-medium focus:outline-none sm:text-sm border-transparent bg-blue-500 text-white hover:bg-blue-700">
             {t('claim')}
           </button>

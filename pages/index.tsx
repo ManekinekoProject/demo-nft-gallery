@@ -47,44 +47,48 @@ const Home: NextPage = () => {
         <h1 className="text-3xl text-blue-500 font-bold my-4">{t('title')}</h1>
       </header>
 
-      <div>
-        <Language />
-        <Creator />
-        <Button
-          type="primary"
-          className="sm:mr-4"
-          onClick={() => setIsContactModalOpen(true)}
-        >
-          {t('contact')}
-        </Button>
-        <SearchBar
-          searchContent={searchContent}
-          setSearchContent={setSearchContent}
-        />
-      </div>
+      <div className="container mx-auto">
+        <div>
+          <Language />
+          <Creator />
+          <Button
+            type="primary"
+            className="sm:mr-4"
+            onClick={() => setIsContactModalOpen(true)}
+          >
+            {t('contact')}
+          </Button>
+          <SearchBar
+            searchContent={searchContent}
+            setSearchContent={setSearchContent}
+          />
+        </div>
 
-      <div className="mt-6">
-        {tokensLoading ? (
-          <div className="text-center text-xl font-bold">{t('loading')}...</div>
-        ) : // @ts-ignore
-        tokensData.length > 0 ? (
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* @ts-ignore */}
-            {list.map((token: IToken, index: number) => {
-              return (
-                <Card
-                  key={`token-${index}`}
-                  token={token}
-                  onImgClick={onImgClick}
-                />
-              )
-            })}
-          </section>
-        ) : (
-          <div className="text-center text-xl font-bold">
-            {t('notFound', { ns: 'token' })}
-          </div>
-        )}
+        <div className="mt-6">
+          {tokensLoading ? (
+            <div className="text-center text-xl font-bold">
+              {t('loading')}...
+            </div>
+          ) : // @ts-ignore
+          tokensData.length > 0 ? (
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* @ts-ignore */}
+              {list.map((token: IToken, index: number) => {
+                return (
+                  <Card
+                    key={`token-${index}`}
+                    token={token}
+                    onImgClick={onImgClick}
+                  />
+                )
+              })}
+            </section>
+          ) : (
+            <div className="text-center text-xl font-bold">
+              {t('notFound', { ns: 'token' })}
+            </div>
+          )}
+        </div>
       </div>
 
       <Modal isOpen={isModalOpen} hide={() => setIsModalOpen(false)}>
