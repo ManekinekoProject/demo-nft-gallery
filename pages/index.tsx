@@ -100,22 +100,22 @@ const Home: NextPage = () => {
                 <p>{selectedToken?.author}</p>
               </div>
 
-              <div className="mb-2 flex justify-center md:justify-start items-center">
+              {/* <div className="mb-2 flex justify-center md:justify-start items-center">
                 <p className="font-bold">{t('createdAt', { ns: 'token' })}：</p>
                 <p>{selectedToken?.createdAt}</p>
-              </div>
+              </div> */}
 
               <div className="mb-2 flex justify-center md:justify-start items-center">
                 <p className="font-bold">{t('no', { ns: 'token' })}：</p>
                 <p>{selectedToken?.name}</p>
               </div>
 
-              <div className="mb-2">
+              {/* <div className="mb-2">
                 <p className="font-bold">
                   {t('description', { ns: 'token' })}：
                 </p>
                 <p>{selectedToken?.description}</p>
-              </div>
+              </div> */}
 
               <div className="mb-2 text-blue-500">
                 <a
