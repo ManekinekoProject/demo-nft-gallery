@@ -54,7 +54,7 @@ const Home: NextPage = () => {
           <Button
             type="primary"
             className="sm:mr-4"
-            onClick={() => setIsContactModalOpen(true)}
+            onClick={() => window.open('https://forms.gle/acXR2KXdsETJrSJ19')}
           >
             {t('contact')}
           </Button>
