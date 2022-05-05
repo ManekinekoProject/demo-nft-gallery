@@ -8,7 +8,7 @@ const Creator = () => {
 
   return (
     <Button type="primary" className="sm:mx-4">
-      <Link href="https://www.google.com">
+      <Link href="https://ct.phone-in.com.tw/phonein_new3/login.php?log=1">
         <a>{i18n.language === 'en' ? 'Author' : '作者專區'}</a>
       </Link>
     </Button>
