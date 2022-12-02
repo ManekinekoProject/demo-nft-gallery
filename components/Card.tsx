@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next'
+import Image from 'next/image'
 
 type TProps = {
   token: IToken
@@ -10,12 +11,16 @@ const Card = ({ token, onImgClick }: TProps) => {
 
   return (
     <div className="flex flex-col md:flex-row mb-4 bg-slate-100 hover:bg-slate-200 duration-200 rounded-2xl">
-      <div
+      {/* <div
         className="h-48 md:h-60 w-full my-4 md:w-1/3 rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl bg-contain bg-center bg-no-repeat cursor-pointer"
-        style={{ backgroundImage: `url(${token.image})` }}
+        style={{ backgroundImage: '/images/1.png' }}
         onClick={() => onImgClick(token.tokenId)}
-      ></div>
-
+      ></div> */}
+      <img
+        src={`/images/${token.tokenId}.png`}
+        alt="Picture of the author"
+        width={200}
+      />
       <div className="flex-grow p-4">
         <div className="mb-2 flex justify-start items-center">
           <p className="font-bold">{t('no')}：</p>
