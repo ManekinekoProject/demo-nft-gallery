@@ -48,7 +48,7 @@ const Home: NextPage = () => {
     {
       name: 'NF003',
       tokenId: '4',
-      attributes: { lastMonth: '1100', unclaim: '13500', claimed: '0' },
+      attributes: { lastMonth: '100', unclaim: '13500', claimed: '0' },
       image: 'https://manekin-neko.herokuapp.com/images/4.png',
       author: '',
       description: '',
